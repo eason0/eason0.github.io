@@ -15,7 +15,10 @@ $.getJSON({
 					 
 					success: function( data ) {
 						alert(data); 
-					}
+					},
+    error: function( data ) {
+      alert( "ERROR:  " + data );
+    }
 				});
 
 });

@@ -1,6 +1,4 @@
-﻿<meta http-equiv="Access-Control-Allow-Origin" content="*">
-<meta http-equiv="Content-Type" content="application/json; charset=utf-8"> 
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+﻿<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script>
 
 
@@ -8,20 +6,21 @@
 
 $(function(){
 	  
+ $.ajax({
+	type: "get",
+	async: false,//async設定false會變成同步請求 要完成ajax後才會繼續執行
+	url: "https://eason0.000webhostapp.com/2.html",
+	dataType: "jsonp",
+	jsonpCallback:"callback", //callback函式(jsonp的callback函式，預設是callback)
+	success: function(json){
+		//jQuery會自動將結果傳入(如果有設定callback函式的話，兩者都會執行)
+		console.log(json);
+	},
+	error: function(data){
+		alert('fail');
+	}
+});
  
  
- 
-$.getJSON({
-					url: "https://eason0.000webhostapp.com/2.html",
-					dataType: "json",
-					 
-					success: function( data ) {
-						alert(data); 
-					},
-    error: function( data ) {
-      alert( "ERROR:  " + data );
-    }
-				});
-
 });
 </script>
